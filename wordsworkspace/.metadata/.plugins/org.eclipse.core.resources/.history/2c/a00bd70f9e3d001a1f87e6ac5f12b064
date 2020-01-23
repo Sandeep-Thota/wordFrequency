@@ -1,0 +1,13 @@
+package com.words.wordfrequency;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		FileWord file = new FileWord();
+		file.wordDocument();
+	}
+
+}

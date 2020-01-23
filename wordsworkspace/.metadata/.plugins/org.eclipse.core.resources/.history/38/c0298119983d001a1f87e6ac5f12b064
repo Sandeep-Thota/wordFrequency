@@ -1,0 +1,74 @@
+package com.words.wordfrequency;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class FileWord {
+
+	public void wordDocument() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter file path:");
+		String path = in.next();
+		File file = new File(path);// test-word.txt
+		Map<String, Integer> wordsMap = new HashMap<>();
+		try {
+			Scanner sc = new Scanner(file);
+			if (sc.hasNextLine()) {
+				while (sc.hasNextLine()) {
+					String filePath = sc.nextLine();
+					getWords(filePath, wordsMap);
+				}
+				setcount(wordsMap);
+				sc.close();
+			} else {
+				System.out.println("No path in the file");
+				wordDocument();
+			}
+			
+		} catch (Exception e) {
+			// e.printStackTrace();
+			// throw new IllegalArgumentException("No File found in Path");
+			System.out.println("Path not found");
+			wordDocument();
+
+		}
+	}
+
+	/**
+	 * Method to get words from each File
+	 *
+	 * @param filePath
+	 * @param wordsMap
+	 */
+	public void getWords(String filePath, Map<String, Integer> wordsMap) {
+		File file = new File(filePath);
+		try {
+			Scanner sc = new Scanner(file);
+			while (sc.hasNextLine()) {
+				String[] words = sc.nextLine().split(" ");
+				for (int i = 0; i < words.length; i++) {
+					if (wordsMap.containsKey(words[i])) {
+						int count = wordsMap.get(words[i]) + 1;
+						wordsMap.put(words[i], count);
+					} else {
+						wordsMap.put(words[i], 1);
+					}
+				}
+
+			}
+			sc.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void setcount(Map<String, Integer> wordsMap) {
+		Set<Map.Entry<String, Integer>> entrySet = wordsMap.entrySet();
+		for (Map.Entry<String, Integer> entry : entrySet) {
+			System.out.println("Wordname: " + entry.getKey() + ", Count: " + entry.getValue());
+		}
+	}
+}

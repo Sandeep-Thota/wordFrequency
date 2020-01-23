@@ -1,0 +1,14 @@
+package com.words.wordfrequency;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class FileWordTest extends FileWord {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

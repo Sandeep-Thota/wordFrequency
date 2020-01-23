@@ -1,0 +1,25 @@
+package com.words.wordfrequency;
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Test;
+
+public class FileWordTest{
+
+	@Test
+	public void noData() {
+		FileWord f = new FileWord();
+		
+		Map<String, Integer> entry = new HashMap();
+		entry.put("", arg1)
+	    InputStream in = new ByteArrayInputStream(entry.getBytes());
+	    System.setIn(in);
+	    assertEquals(entry, f.wordDocument());
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.words.wordfrequency;
+
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Test;
+
+public class FileWordTest{
+
+	@Test
+	public void noData() {
+		FileWord f = new FileWord();
+//		String filePath, Map<String, Integer> wordsMap
+		ClassLoader classLoader = getClass().getClassLoader();
+		InputStream inputStream = classLoader.getResourceAsStream("test-word.txt");
+		
+		
+		    
+	}
+	
+	public void emptypath() {
+		
+		//If given an empty string,tthe ouput would "fiLE NOT FOUND"
+		//yOU CAN TEST THIS BY PASSING /SRC/TEST/RESPURCES/EMPTY-PATH.TXT IN THE ABOVE METHOD AS SCANNER INPUT
+	}
+
+}
